@@ -1,0 +1,227 @@
+openapi: 3.0.3
+info:
+  title: Tasks API
+  version: "2.0.0"
+servers:
+  - url: /api/v2
+paths:
+  /projects:
+    get:
+      summary: List projects
+      responses:
+        "200":
+          description: list of projects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectsResponse'
+    post:
+      summary: Create project
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectCreate'
+      responses:
+        "201":
+          description: created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+  /projects/{projectId}/tasks:
+    get:
+      summary: List tasks for project
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [todo,in_progress,done]
+        - name: priority
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 5
+      responses:
+        "200":
+          description: list of tasks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TasksResponse'
+    post:
+      summary: Create task in project (v2)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: Idempotency-Key
+          in: header
+          required: false
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskCreateV2'
+      responses:
+        "201":
+          description: created task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskV2'
+  /tasks/{taskId}:
+    get:
+      summary: Get task
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskV2'
+    put:
+      summary: Update task
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskUpdateV2'
+      responses:
+        "200":
+          description: updated task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskV2'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    # Project schemas reused
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required: [id, name]
+    ProjectCreate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+      required: [name]
+    ProjectsResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/Project'
+    # Task v2 includes priority (1..5)
+    TaskV2:
+      type: object
+      properties:
+        id:
+          type: string
+        projectId:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum: [todo, in_progress, done]
+        priority:
+          type: integer
+          minimum: 1
+          maximum: 5
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required: [id, projectId, title, status]
+    TaskCreateV2:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        priority:
+          type: integer
+          minimum: 1
+          maximum: 5
+      required: [title]
+    TaskUpdateV2:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum: [todo, in_progress, done]
+        priority:
+          type: integer
+          minimum: 1
+          maximum: 5
+    TasksResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/TaskV2'
