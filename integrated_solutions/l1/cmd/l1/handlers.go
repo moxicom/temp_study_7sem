@@ -70,6 +70,37 @@ func getProjectV1(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, http.StatusOK, p)
 }
 
+func updateProjectV1(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "projectId")
+	var req struct {
+		Name        string `json:"name"`
+		Description string `json:"description"`
+	}
+	if err := parseJSON(r, &req); err != nil {
+		http.Error(w, "bad request", http.StatusBadRequest)
+		return
+	}
+	projectsMu.Lock()
+	defer projectsMu.Unlock()
+	p, ok := projects[id]
+	if !ok {
+		http.Error(w, "not found", http.StatusNotFound)
+		return
+	}
+	p.Name = req.Name
+	p.Description = req.Description
+	p.UpdatedAt = time.Now().UTC()
+	writeJSON(w, http.StatusOK, p)
+}
+
+func deleteProjectV1(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "projectId")
+	projectsMu.Lock()
+	defer projectsMu.Unlock()
+	delete(projects, id)
+	writeJSON(w, http.StatusOK, map[string]string{"message": "project deleted"})
+}
+
 func listTasksV1(w http.ResponseWriter, r *http.Request) {
 	projectId := chi.URLParam(r, "projectId")
 	tasksMu.RLock()
@@ -161,6 +192,14 @@ func updateTaskV1(w http.ResponseWriter, r *http.Request) {
 	}
 	t.UpdatedAt = time.Now().UTC()
 	writeJSON(w, http.StatusOK, t)
+}
+
+func deleteTaskV1(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "taskId")
+	tasksMu.Lock()
+	defer tasksMu.Unlock()
+	delete(tasks, id)
+	writeJSON(w, http.StatusOK, map[string]string{"message": "task deleted"})
 }
 
 // --- V2 handlers (support priority and filters)

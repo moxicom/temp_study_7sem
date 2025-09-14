@@ -65,11 +65,14 @@ func main() {
 		r.Get("/projects", listProjectsV1)
 		r.Post("/projects", createProjectV1)
 		r.Get("/projects/{projectId}", getProjectV1)
+		r.Put("/projects/{projectId}", updateProjectV1)
+		r.Delete("/projects/{projectId}", deleteProjectV1)
 		// tasks
 		r.Get("/projects/{projectId}/tasks", listTasksV1)
 		r.Post("/projects/{projectId}/tasks", createTaskV1)
 		r.Get("/tasks/{taskId}", getTaskV1)
 		r.Put("/tasks/{taskId}", updateTaskV1)
+		r.Delete("/tasks/{taskId}", deleteTaskV1)
 	})
 
 	r.Route("/api/v2", func(r chi.Router) {
