@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/activity_main"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ToggleButton
+            android:id="@+id/btn_b"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textOn="B"
+            android:textOff="B" />
+
+        <ToggleButton
+            android:id="@+id/btn_i"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textOn="I"
+            android:textOff="I" />
+
+        <Button
+            android:id="@+id/button_minus"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text="-" />
+        <TextView
+            android:id="@+id/size_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text size:"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp" />
+        <TextView
+            android:id="@+id/size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp" />
+
+        <Button
+            android:id="@+id/button_plus"
+            android:layout_width="60dp"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:text="+" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <RadioGroup
+            android:id="@+id/radio_group_fonts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/btn_sans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sans"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/btn_serif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Serif" />
+
+            <RadioButton
+                android:id="@+id/btn_monospace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mono" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Форматируемый текст"
+        android:textSize="20sp"
+        android:gravity="top|center_horizontal"
+        android:background="@android:color/white"
+        android:padding="8dp" />
+
+</LinearLayout>
