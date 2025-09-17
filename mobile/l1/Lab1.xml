@@ -1,0 +1,81 @@
+<?xml version="1.0' encoding="utf-8">
+<TableLayout xmls:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        <ToggleButton
+            android:id=@+id/button_b"
+            android:layout_width="50dp"
+            android:layout_height"wrap_content"
+            android:textOff="B"
+            android:textOn="B" />
+        <ToggleButton
+            android:id="@+id/button_i"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textOff="I"
+            android:textOn="I" //>
+        <TextView
+            android:id="@+id/label"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="&!!!"
+            android:paddingLeft="10dp" >
+        <TextView
+            android:id="@+id/size"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="20"
+            android:paddingLeft="10dp" />
+        <Button
+            android:id="@+id/button_plus"
+            androidlayout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="+"/>
+        <Button
+            android:id="@+id/button_minus"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="-"/>   
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="top|center"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical">
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/button_sans"
+                android:checked="true
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SansSerif"/>
+            <RadioButton
+                android:id="@+id/button_serif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Serif"/>
+            <RadioButton
+                android:id="@+id/button_monospace"
+                android:layout_width"wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monospace"/>
+	    </TableRow>
+        </RadioGroup>
+    </Linearlayout>
+</TableLayout>
+    <EditText
+        android:id="@+id/edit_text"
+        android:textSize="20sp"
+        android:gravity="top|center"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:text="Форматируемый текст"/>
+
+

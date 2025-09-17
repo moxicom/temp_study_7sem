@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Library name="CentralLibrary" location="Riga">
+    <Books>
+        <Book id="B001" genre="Fantasy" language="EN">
+            <Title>The Winds of Winter</Title>
+            <Author ref="A001"/>
+            <Publisher ref="P001"/>
+            <Year>2025</Year>
+            <Pages>1150</Pages>
+            <ISBN>978-3-16-148410-0</ISBN>
+        </Book>
+        <Book id="B002" genre="Science" language="RU">
+            <Title>Краткая история времени</Title>
+            <Author ref="A002"/>
+            <Publisher ref="P002"/>
+            <Year>1988</Year>
+            <Pages>256</Pages>
+            <ISBN>978-5-17-118366-1</ISBN>
+        </Book>
+    </Books>
+
+    <Authors>
+        <Author id="A001" nationality="UK">
+            <Name>George R. R. Martin</Name>
+            <BirthYear>1948</BirthYear>
+        </Author>
+        <Author id="A002" nationality="UK">
+            <Name>Stephen Hawking</Name>
+            <BirthYear>1942</BirthYear>
+        </Author>
+    </Authors>
+
+    <Publishers>
+        <Publisher id="P001" country="US">
+            <Name>Bantam Books</Name>
+            <Founded>1945</Founded>
+        </Publisher>
+        <Publisher id="P002" country="RU">
+            <Name>АСТ</Name>
+            <Founded>1990</Founded>
+        </Publisher>
+    </Publishers>
+
+    <Users>
+        <User id="U001" type="student">
+            <Name>Alex Johnson</Name>
+            <Email>alex.j@example.com</Email>
+            <BorrowedBooks>
+                <BookRef id="B001" dueDate="2025-10-15"/>
+            </BorrowedBooks>
+        </User>
+        <User id="U002" type="teacher">
+            <Name>Мария Иванова</Name>
+            <Email>m.ivanova@example.ru</Email>
+            <BorrowedBooks>
+                <BookRef id="B002" dueDate="2025-09-30"/>
+            </BorrowedBooks>
+        </User>
+    </Users>
+</Library>
+
