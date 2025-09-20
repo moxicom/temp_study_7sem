@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Buggy TODO</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    .done { text-decoration: line-through; color: gray; }
+    li { margin-bottom: 8px; }
+    .title { margin: 0 10px; display: inline-block; width: 300px; }
+  </style>
+</head>
+<body>
+  <h1>Buggy TODO List</h1>
+
+  <form id="addForm" method="post" action="/add">
+    <input id="title" name="title" placeholder="Task title" />
+    <button type="submit">Add</button>
+  </form>
+
+  <div style="margin-top:10px;">
+    Filter:
+    <select id="filter">
+      <option value="all">All</option>
+      <option value="active">Active</option>
+      <option value="done">Done</option>
+    </select>
+  </div>
+
+  <ul id="tasks">
+    {% for t in tasks %}
+      <li data-id="{{ t.id }}" class="{{ 'done' if t.done else '' }}">
+        <input type="checkbox" class="toggle" {% if t.done %}checked{% endif %} />
+        <span class="title">{{ t.title }}</span>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+      </li>
+    {% endfor %}
+  </ul>
+
+<script>
+document.addEventListener('click', function(e){
+  // Toggle
+  if(e.target.classList.contains('toggle')){
+    const li = e.target.parentNode;
+    const id = li.dataset.id; // string
+    // BUG: no feedback, fire-and-forget; server has index-vs-id bug
+    fetch('/toggle/' + id, {method: 'POST'});
+    // no UI update here (relies on page reload)
+  }
+
+  // Delete
+  if(e.target.classList.contains('delete')){
+    const li = e.target.parentNode;
+    const id = li.dataset.id;
+    // BUG: no confirmation; server deletes by title==id; client removes UI regardless of server response
+    fetch('/delete/' + id, {method: 'POST'}).then(()=> li.remove());
+  }
+
+  // Edit
+  if(e.target.classList.contains('edit')){
+    const li = e.target.parentNode;
+    const id = li.dataset.id;
+    const titleSpan = li.querySelector('.title');
+    const newTitle = prompt('New title', titleSpan.textContent);
+    if(newTitle !== null){
+      const form = new FormData();
+      form.append('title', newTitle);
+      // BUG: server will create a new task instead of editing
+      fetch('/edit/' + id, {method: 'POST', body: form}).then(()=> location.reload());
+    }
+  }
+});
+
+// Filter logic (BUG: reversed behaviour for done/active)
+document.getElementById('filter').addEventListener('change', function(){
+  const f = this.value;
+  const lis = document.querySelectorAll('#tasks li');
+  lis.forEach(li => {
+    const isDone = li.classList.contains('done');
+    if(f === 'all') li.style.display = '';
+    else if(f === 'done') li.style.display = isDone ? 'none' : '';
+    else if(f === 'active') li.style.display = !isDone ? 'none' : '';
+  });
+});
+</script>
+</body>
+</html> 
