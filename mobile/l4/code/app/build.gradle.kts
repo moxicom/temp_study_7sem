@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.simad.lab4"
+    namespace = "com.aemarkov.lab4"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.simad.lab4"
+        applicationId = "com.aemarkov.lab4"
         minSdk = 24
         //noinspection OldTargetApi
         targetSdk = 35

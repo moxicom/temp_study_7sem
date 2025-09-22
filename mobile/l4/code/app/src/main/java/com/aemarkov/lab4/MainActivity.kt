@@ -1,4 +1,4 @@
-package com.simad.lab4
+package com.aemarkov.lab4
 
 import android.os.Bundle
 import android.widget.*
