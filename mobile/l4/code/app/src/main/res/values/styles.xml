@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Базовый стиль для заголовков -->
+    <style name="TitleTextStyle">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:shadowColor">@color/shadow_color</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">4</item>
+    </style>
+
+    <!-- Стиль для описательного текста -->
+    <style name="DescriptionTextStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Стиль для карточек -->
+    <style name="CardStyle">
+        <item name="android:background">@drawable/card_background</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:layout_margin">12dp</item>
+        <item name="android:padding">20dp</item>
+    </style>
+
+    <!-- Стиль для кнопок -->
+    <style name="ModernButtonStyle">
+        <item name="android:background">@drawable/button_style</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:elevation">6dp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <!-- Стиль для переключателей -->
+    <style name="ModernSwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Стиль для чекбоксов -->
+    <style name="ModernCheckBoxStyle" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Стиль для радиокнопок -->
+    <style name="ModernRadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

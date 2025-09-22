@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <!-- Заголовок с красивым стилем -->
+        <TextView
+            android:id="@+id/textTitle"
+            style="@style/TitleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎨 Галерея Изображений"
+            android:layout_marginBottom="32dp"
+            android:gravity="center" />
+
+        <!-- Карточка с настройками отображения -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/CardStyle"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚙️ Настройки отображения"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="16dp" />
+
+            <CheckBox
+                android:id="@+id/checkBoxShow"
+                style="@style/ModernCheckBoxStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👁️ Показать картинку"
+                android:checked="true"
+                android:layout_marginBottom="16dp" />
+
+            <Switch
+                android:id="@+id/switchMode"
+                style="@style/ModernSwitchStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Выберите пол!" />
+
+        </LinearLayout>
+
+        <!-- Карточка с выбором животных -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/CardStyle"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🐾 Выберите животное"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="16dp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/radioCat"
+                    style="@style/ModernRadioButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🐱 Кот"
+                    android:layout_marginEnd="24dp" />
+
+                <RadioButton
+                    android:id="@+id/radioDog"
+                    style="@style/ModernRadioButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🐶 Собака" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <!-- Карточка с описанием -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/CardStyle"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textDescription"
+                style="@style/DescriptionTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✨ Выберите элемент для просмотра"
+                android:gravity="center"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/image_container"
+            android:elevation="12dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/man"
+                android:contentDescription="Главное изображение" />
+
+        </FrameLayout>
+
+        <!-- Кнопка смены изображения -->
+        <FrameLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_style"
+            android:elevation="8dp">
+
+            <ImageButton
+                android:id="@+id/imageButtonChange"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:src="@drawable/change"
+                android:contentDescription="🔄 Сменить картинку"
+                android:scaleType="fitCenter" />
+
+        </FrameLayout>
+
+        <!-- Дополнительное пространство внизу -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="32dp" />
+
+    </LinearLayout>
+
+</ScrollView>
