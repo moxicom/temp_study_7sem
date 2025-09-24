@@ -19,7 +19,7 @@ def driver():
     # Для CI/виртуального сервера можно включить headless:
     # options.add_argument("--headless=new")  # или "--headless"
     options.add_argument("--window-size=1920,1080")
-    # инициализация драйвера (Chrome)
+    
     service = ChromeService(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
     yield driver
@@ -28,14 +28,11 @@ def driver():
 def test_login_valid_shows_logout(driver):
     driver.get(LOGIN_URL)
 
-    # Вводим логин/пароль
     driver.find_element(By.ID, "username").send_keys(VALID_USER)
     driver.find_element(By.ID, "password").send_keys(VALID_PASS)
 
-    # Нажимаем Submit
     driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
 
-    # Явное ожидание появления ссылки "Logout"
     wait = WebDriverWait(driver, 10)
     logout_elem = wait.until(EC.presence_of_element_located((By.XPATH, "//a[contains(., 'Logout')]")))
 

@@ -8,7 +8,7 @@ import time
 
 def main():
     options = Options()
-    # options.add_argument("--headless")  # раскомментируйте для headless
+    # options.add_argument("--headless")  # для headless надо раскомментировать
     options.add_argument("--start-maximized")
     # Инициализация Chrome через webdriver-manager
     service = ChromeService(ChromeDriverManager().install())
