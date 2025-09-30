@@ -37,7 +37,10 @@ class ContactPage(BasePage):
         time.sleep(2)  # ждем появления модального окна
 
     def success_message_visible(self):
-        return self.find(self.SUCCESS_MODAL)
+        try:
+            return self.find(self.SUCCESS_MODAL)
+        except:
+            return None
 
     def email_error_visible(self):
         return self.find(self.EMAIL_ERROR)

@@ -1,5 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 
 class BasePage:
     def __init__(self, driver):
@@ -15,10 +16,21 @@ class BasePage:
         )
 
     def click(self, locator):
-        self.find(locator).click()
+        element = self.find(locator)
+        # Прокручиваем к элементу, чтобы он был видимым
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
+        # Ждем немного, чтобы прокрутка завершилась
+        import time
+        time.sleep(0.5)
+        # Используем JavaScript клик для надежности
+        self.driver.execute_script("arguments[0].click();", element)
 
     def type(self, locator, text):
         field = self.find(locator)
+        # Прокручиваем к полю, чтобы оно было видимым
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", field)
+        import time
+        time.sleep(0.3)
         field.clear()
         field.send_keys(text)
 

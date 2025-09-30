@@ -9,7 +9,7 @@ def test_negative_invalid_email(driver):
     page.fill_form("Alex", "Cursed", "invalid-email-format", "Male", "1234567890")
     
     # Пробуем отправить форму с неправильным email
-    page.click(page.SUBMIT)
+    page.submit_form()
     
     # Проверяем, что форма не отправилась (нет модального окна)
     try:
