@@ -1,0 +1,54 @@
+2025-10-05 15:19:30,118 - INFO - 🚀 Запуск автоматизированного тестирования приложения Калькулятор
+2025-10-05 15:19:32,209 - ERROR - ❌ Ошибка при подключении к Appium: Message: Cannot start the 'com.google.android.calculator' application. Consider checking the driver's troubleshooting documentation. Original error: Error executing adbExec. Original error: 'Command '/home/ejs/Android/Sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am start-activity -W -n com.google.android.calculator/com.android.calculator2.Calculator -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000' exited with code 1'; Command output: Stopping: com.google.android.calculator
+Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.google.android.calculator/com.android.calculator2.Calculator }
+Error type 3
+Error: Activity class {com.google.android.calculator/com.android.calculator2.Calculator} does not exist.
+
+Stacktrace:
+UnknownError: Cannot start the 'com.google.android.calculator' application. Consider checking the driver's troubleshooting documentation. Original error: Error executing adbExec. Original error: 'Command '/home/ejs/Android/Sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am start-activity -W -n com.google.android.calculator/com.android.calculator2.Calculator -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000' exited with code 1'; Command output: Stopping: com.google.android.calculator
+Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.google.android.calculator/com.android.calculator2.Calculator }
+Error type 3
+Error: Activity class {com.google.android.calculator/com.android.calculator2.Calculator} does not exist.
+
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/errors.ts:1103:34)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/protocol.ts:507:57)
+The above error is caused by
+Error: Cannot start the 'com.google.android.calculator' application. Consider checking the driver's troubleshooting documentation. Original error: Error executing adbExec. Original error: 'Command '/home/ejs/Android/Sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am start-activity -W -n com.google.android.calculator/com.android.calculator2.Calculator -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000' exited with code 1'; Command output: Stopping: com.google.android.calculator
+Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.google.android.calculator/com.android.calculator2.Calculator }
+Error type 3
+Error: Activity class {com.google.android.calculator/com.android.calculator2.Calculator} does not exist.
+
+    at ADB.startApp (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-adb/lib/tools/app-commands.js:844:11)
+    at AndroidUiautomator2Driver.ensureAppStarts (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/lib/driver.ts:819:5)
+    at AndroidUiautomator2Driver.performSessionPostExecSetup (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/lib/driver.ts:633:7)
+    at AndroidUiautomator2Driver.startUiAutomator2Session (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/lib/driver.ts:690:5)
+    at AndroidUiautomator2Driver.createSession (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/lib/driver.ts:403:22)
+    at AppiumDriver.createSession (/usr/local/lib/node_modules/appium/lib/appium.js:360:35)
+2025-10-05 15:19:32,209 - ERROR - ❌ Не удалось настроить драйвер для калькулятора
+2025-10-05 15:20:18,434 - INFO - 🚀 Запуск автоматизированного тестирования приложения Калькулятор
+2025-10-05 15:20:20,367 - ERROR - ❌ Ошибка при подключении к Appium: Message: Cannot start the 'com.google.android.calculator' application. Consider checking the driver's troubleshooting documentation. Original error: Error executing adbExec. Original error: 'Command '/home/ejs/Android/Sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am start-activity -W -n com.google.android.calculator/com.android.calculator2.Calculator -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000' exited with code 1'; Command output: Stopping: com.google.android.calculator
+Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.google.android.calculator/com.android.calculator2.Calculator }
+Error type 3
+Error: Activity class {com.google.android.calculator/com.android.calculator2.Calculator} does not exist.
+
+Stacktrace:
+UnknownError: Cannot start the 'com.google.android.calculator' application. Consider checking the driver's troubleshooting documentation. Original error: Error executing adbExec. Original error: 'Command '/home/ejs/Android/Sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am start-activity -W -n com.google.android.calculator/com.android.calculator2.Calculator -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000' exited with code 1'; Command output: Stopping: com.google.android.calculator
+Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.google.android.calculator/com.android.calculator2.Calculator }
+Error type 3
+Error: Activity class {com.google.android.calculator/com.android.calculator2.Calculator} does not exist.
+
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/errors.ts:1103:34)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/protocol.ts:507:57)
+The above error is caused by
+Error: Cannot start the 'com.google.android.calculator' application. Consider checking the driver's troubleshooting documentation. Original error: Error executing adbExec. Original error: 'Command '/home/ejs/Android/Sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am start-activity -W -n com.google.android.calculator/com.android.calculator2.Calculator -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000' exited with code 1'; Command output: Stopping: com.google.android.calculator
+Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.google.android.calculator/com.android.calculator2.Calculator }
+Error type 3
+Error: Activity class {com.google.android.calculator/com.android.calculator2.Calculator} does not exist.
+
+    at ADB.startApp (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-adb/lib/tools/app-commands.js:844:11)
+    at AndroidUiautomator2Driver.ensureAppStarts (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/lib/driver.ts:819:5)
+    at AndroidUiautomator2Driver.performSessionPostExecSetup (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/lib/driver.ts:633:7)
+    at AndroidUiautomator2Driver.startUiAutomator2Session (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/lib/driver.ts:690:5)
+    at AndroidUiautomator2Driver.createSession (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/lib/driver.ts:403:22)
+    at AppiumDriver.createSession (/usr/local/lib/node_modules/appium/lib/appium.js:360:35)
+2025-10-05 15:20:20,367 - ERROR - ❌ Не удалось настроить драйвер для калькулятора

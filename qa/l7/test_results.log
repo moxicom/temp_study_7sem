@@ -1,0 +1,196 @@
+2025-10-05 14:31:05,818 - INFO - Starting automated mobile application testing
+2025-10-05 14:31:25,834 - ERROR - Error connecting to Appium: Message: Could not find a connected Android device in 20000ms
+Stacktrace:
+UnknownError: Could not find a connected Android device in 20000ms
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/errors.ts:1103:34)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/protocol.ts:507:57)
+The above error is caused by
+Error: Could not find a connected Android device in 20000ms
+    at ADB.getDevicesWithRetry (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-adb/lib/tools/system-calls.js:295:13)
+    at AndroidUiautomator2Driver.getDeviceInfoFromCaps (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/device/common.js:41:21)
+    at AndroidUiautomator2Driver.createSession (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/lib/driver.ts:361:30)
+    at AppiumDriver.createSession (/usr/local/lib/node_modules/appium/lib/appium.js:360:35)
+2025-10-05 14:31:25,834 - ERROR - Failed to setup driver
+2025-10-05 14:35:37,961 - INFO - Starting automated mobile application testing
+2025-10-05 14:35:40,205 - ERROR - Error connecting to Appium: Message: Cannot start the 'com.google.android.keep' application. Consider checking the driver's troubleshooting documentation. Original error: Error executing adbExec. Original error: 'Command '/home/ejs/Android/Sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am start-activity -W -n com.google.android.keep/.activities.BrowseActivity -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000' exited with code 1'; Command output: Stopping: com.google.android.keep
+Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.google.android.keep/.activities.BrowseActivity }
+Error type 3
+Error: Activity class {com.google.android.keep/com.google.android.keep.activities.BrowseActivity} does not exist.
+
+Stacktrace:
+UnknownError: Cannot start the 'com.google.android.keep' application. Consider checking the driver's troubleshooting documentation. Original error: Error executing adbExec. Original error: 'Command '/home/ejs/Android/Sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am start-activity -W -n com.google.android.keep/.activities.BrowseActivity -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000' exited with code 1'; Command output: Stopping: com.google.android.keep
+Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.google.android.keep/.activities.BrowseActivity }
+Error type 3
+Error: Activity class {com.google.android.keep/com.google.android.keep.activities.BrowseActivity} does not exist.
+
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/errors.ts:1103:34)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/@appium/base-driver/lib/protocol/protocol.ts:507:57)
+The above error is caused by
+Error: Cannot start the 'com.google.android.keep' application. Consider checking the driver's troubleshooting documentation. Original error: Error executing adbExec. Original error: 'Command '/home/ejs/Android/Sdk/platform-tools/adb -P 5037 -s emulator-5554 shell am start-activity -W -n com.google.android.keep/.activities.BrowseActivity -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000' exited with code 1'; Command output: Stopping: com.google.android.keep
+Starting: Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.google.android.keep/.activities.BrowseActivity }
+Error type 3
+Error: Activity class {com.google.android.keep/com.google.android.keep.activities.BrowseActivity} does not exist.
+
+    at ADB.startApp (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-adb/lib/tools/app-commands.js:844:11)
+    at AndroidUiautomator2Driver.ensureAppStarts (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/lib/driver.ts:819:5)
+    at AndroidUiautomator2Driver.performSessionPostExecSetup (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/lib/driver.ts:633:7)
+    at AndroidUiautomator2Driver.startUiAutomator2Session (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/lib/driver.ts:690:5)
+    at AndroidUiautomator2Driver.createSession (/home/ejs/.appium/node_modules/appium-uiautomator2-driver/lib/driver.ts:403:22)
+    at AppiumDriver.createSession (/usr/local/lib/node_modules/appium/lib/appium.js:360:35)
+2025-10-05 14:35:40,205 - ERROR - Failed to setup driver
+2025-10-05 14:37:05,186 - INFO - Starting automated mobile application testing
+2025-10-05 14:37:06,499 - INFO - Successfully connected to Appium server
+2025-10-05 14:37:06,499 - INFO - Test 1: Application launch check
+2025-10-05 14:37:09,519 - INFO - Current activity: .NexusLauncherActivity
+2025-10-05 14:37:09,706 - INFO - Application launched successfully (alternative selector)
+2025-10-05 14:37:09,706 - INFO - Test 2: Clock interaction
+2025-10-05 14:37:09,742 - WARNING - Could not find clock buttons, but app is working
+2025-10-05 14:37:09,742 - INFO - Test 3: Gesture testing
+2025-10-05 14:37:12,058 - INFO - Long press executed
+2025-10-05 14:37:13,846 - INFO - Gestures tested successfully
+2025-10-05 14:37:13,846 - INFO - Test 4: Screen rotation testing
+2025-10-05 14:37:14,168 - INFO - Current orientation: PORTRAIT
+2025-10-05 14:37:16,185 - ERROR - Error during screen rotation testing: Message: Screen rotation cannot be changed to ROTATION_270 after 2000ms. Is it locked programmatically?
+Stacktrace:
+io.appium.uiautomator2.common.exceptions.InvalidElementStateException: Screen rotation cannot be changed to ROTATION_270 after 2000ms. Is it locked programmatically?
+	at io.appium.uiautomator2.model.internal.CustomUiDevice.setRotationSync(CustomUiDevice.java:223)
+	at io.appium.uiautomator2.handler.SetOrientation.safeHandle(SetOrientation.java:41)
+	at io.appium.uiautomator2.handler.request.SafeRequestHandler.handle(SafeRequestHandler.java:59)
+	at io.appium.uiautomator2.server.AppiumServlet.handleRequest(AppiumServlet.java:259)
+	at io.appium.uiautomator2.server.AppiumServlet.handleHttpRequest(AppiumServlet.java:253)
+	at io.appium.uiautomator2.http.ServerHandler.channelRead(ServerHandler.java:77)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:438)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:253)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:287)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1422)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:931)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1044)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:1119)
+
+2025-10-05 14:37:16,185 - INFO - Test results: 3/4 tests passed
+2025-10-05 14:37:16,185 - WARNING - 1 tests failed
+2025-10-05 14:37:16,578 - INFO - Driver closed
+2025-10-05 15:17:10,676 - INFO - Starting automated mobile application testing
+2025-10-05 15:17:12,270 - INFO - Successfully connected to Appium server
+2025-10-05 15:17:12,270 - INFO - Test 1: Application launch check
+2025-10-05 15:17:15,287 - INFO - Current activity: .NexusLauncherActivity
+2025-10-05 15:17:15,458 - INFO - Application launched successfully (alternative selector)
+2025-10-05 15:17:15,458 - INFO - Test 2: Clock interaction
+2025-10-05 15:17:15,506 - WARNING - Could not find clock buttons, but app is working
+2025-10-05 15:17:15,506 - INFO - Test 3: Gesture testing
+2025-10-05 15:17:17,839 - INFO - Long press executed
+2025-10-05 15:17:19,628 - INFO - Gestures tested successfully
+2025-10-05 15:17:19,628 - INFO - Test 4: Screen rotation testing
+2025-10-05 15:17:19,944 - INFO - Current orientation: PORTRAIT
+2025-10-05 15:17:21,962 - ERROR - Error during screen rotation testing: Message: Screen rotation cannot be changed to ROTATION_270 after 2000ms. Is it locked programmatically?
+Stacktrace:
+io.appium.uiautomator2.common.exceptions.InvalidElementStateException: Screen rotation cannot be changed to ROTATION_270 after 2000ms. Is it locked programmatically?
+	at io.appium.uiautomator2.model.internal.CustomUiDevice.setRotationSync(CustomUiDevice.java:223)
+	at io.appium.uiautomator2.handler.SetOrientation.safeHandle(SetOrientation.java:41)
+	at io.appium.uiautomator2.handler.request.SafeRequestHandler.handle(SafeRequestHandler.java:59)
+	at io.appium.uiautomator2.server.AppiumServlet.handleRequest(AppiumServlet.java:259)
+	at io.appium.uiautomator2.server.AppiumServlet.handleHttpRequest(AppiumServlet.java:253)
+	at io.appium.uiautomator2.http.ServerHandler.channelRead(ServerHandler.java:77)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:438)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:253)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:287)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1422)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:931)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:700)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:635)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:552)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:514)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$6.run(SingleThreadEventExecutor.java:1044)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:1119)
+
+2025-10-05 15:17:21,962 - INFO - Test results: 3/4 tests passed
+2025-10-05 15:17:21,962 - WARNING - 1 tests failed
+2025-10-05 15:17:22,109 - INFO - Driver closed
+2025-10-05 15:18:11,725 - INFO - Starting automated mobile application testing
+2025-10-05 15:18:13,150 - INFO - Successfully connected to Appium server
+2025-10-05 15:18:13,150 - INFO - Test 1: Application launch check
+2025-10-05 15:18:16,168 - INFO - Current activity: .NexusLauncherActivity
+2025-10-05 15:18:16,324 - INFO - Application launched successfully (alternative selector)
+2025-10-05 15:18:16,324 - INFO - Test 2: Clock interaction
+2025-10-05 15:18:16,376 - WARNING - Could not find clock buttons, but app is working
+2025-10-05 15:18:16,377 - INFO - Test 3: Gesture testing
+2025-10-05 15:18:18,699 - INFO - Long press executed
+2025-10-05 15:18:20,518 - INFO - Gestures tested successfully
+2025-10-05 15:18:20,518 - INFO - Test results: 3/3 tests passed
+2025-10-05 15:18:20,518 - INFO - All tests passed successfully!
+2025-10-05 15:18:20,678 - INFO - Driver closed
+2025-10-05 15:20:07,205 - INFO - Starting automated mobile application testing
+2025-10-05 15:20:08,626 - INFO - Successfully connected to Appium server
+2025-10-05 15:20:08,626 - INFO - Test 1: Application launch check
+2025-10-05 15:20:11,643 - INFO - Current activity: .NexusLauncherActivity
+2025-10-05 15:20:11,800 - INFO - Application launched successfully (alternative selector)
+2025-10-05 15:20:11,800 - INFO - Test 2: Clock interaction
+2025-10-05 15:20:11,845 - WARNING - Could not find clock buttons, but app is working
+2025-10-05 15:20:11,845 - INFO - Test 3: Gesture testing
+2025-10-05 15:20:14,164 - INFO - Long press executed
+2025-10-05 15:20:15,952 - INFO - Gestures tested successfully
+2025-10-05 15:20:15,952 - INFO - Test results: 3/3 tests passed
+2025-10-05 15:20:15,952 - INFO - All tests passed successfully!
+2025-10-05 15:20:16,339 - INFO - Driver closed
+2025-10-05 15:38:19,617 - INFO - Starting automated mobile application testing
+2025-10-05 15:38:22,342 - INFO - Successfully connected to Appium server
+2025-10-05 15:38:22,342 - INFO - Test 1: Application launch check
+2025-10-05 15:38:25,360 - INFO - Current activity: com.android.deskclock.DeskClock
+2025-10-05 15:38:25,526 - INFO - Application launched successfully
+2025-10-05 15:38:25,526 - INFO - Test 2: Clock interaction
+2025-10-05 15:38:26,723 - INFO - Clicked alarm button
+2025-10-05 15:38:30,619 - INFO - Clock interaction completed successfully
+2025-10-05 15:38:30,619 - INFO - Test 3: Gesture testing
+2025-10-05 15:38:32,956 - INFO - Long press executed
+2025-10-05 15:38:34,761 - INFO - Gestures tested successfully
+2025-10-05 15:38:34,761 - INFO - Test 4: Screen rotation testing
+2025-10-05 15:38:34,766 - INFO - Current orientation: PORTRAIT
+2025-10-05 15:38:37,335 - INFO - Rotated screen to LANDSCAPE
+2025-10-05 15:38:40,575 - INFO - Application works in new orientation
+2025-10-05 15:38:42,683 - INFO - Test results: 4/4 tests passed
+2025-10-05 15:38:42,683 - INFO - All tests passed successfully!
+2025-10-05 15:38:42,870 - INFO - Driver closed

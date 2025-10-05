@@ -26,22 +26,12 @@ class TestConfig:
         "noReset": True
     }
     
-    # Настройки для разных приложений
+    # Настройки для приложения Clock
     APPS_CONFIG = {
-        "google_keep": {
-            "appPackage": "com.google.android.keep",
-            "appActivity": ".activities.BrowseActivity",
-            "description": "Google Keep - приложение для заметок"
-        },
-        "notes": {
-            "appPackage": "com.google.android.keep",  # Альтернатива
-            "appActivity": ".activities.BrowseActivity",
-            "description": "Стандартное приложение заметок"
-        },
-        "calculator": {
-            "appPackage": "com.google.android.calculator",
-            "appActivity": "com.android.calculator2.Calculator",
-            "description": "Калькулятор"
+        "clock": {
+            "appPackage": "com.google.android.deskclock",
+            "appActivity": ".DeskClock",
+            "description": "Clock - приложение часов"
         }
     }
     
@@ -68,7 +58,7 @@ class TestConfig:
     }
     
     @classmethod
-    def get_app_config(cls, app_name: str = "google_keep") -> Dict[str, Any]:
+    def get_app_config(cls, app_name: str = "clock") -> Dict[str, Any]:
         """Получить конфигурацию для конкретного приложения"""
         if app_name not in cls.APPS_CONFIG:
             raise ValueError(f"Неизвестное приложение: {app_name}")

@@ -1,0 +1,23 @@
+2025-10-05 15:40:34,863 - INFO - Starting comprehensive Clock app testing
+2025-10-05 15:40:37,535 - INFO - Successfully connected to Appium server for Clock app testing
+2025-10-05 15:40:37,535 - INFO - Test 1: Clock main screen display
+2025-10-05 15:40:40,552 - INFO - Current activity: .NexusLauncherActivity
+2025-10-05 15:40:40,706 - WARNING - Could not find time display, but app launched
+2025-10-05 15:40:40,706 - INFO - Test 2: Alarm functionality
+2025-10-05 15:40:40,733 - WARNING - Could not find Alarm tab
+2025-10-05 15:40:40,733 - INFO - Test 3: World clock functionality
+2025-10-05 15:40:40,757 - WARNING - Could not find World clock tab
+2025-10-05 15:40:40,757 - INFO - Test 4: Stopwatch functionality
+2025-10-05 15:40:40,782 - WARNING - Could not find Stopwatch tab
+2025-10-05 15:40:40,782 - INFO - Test 5: Timer functionality
+2025-10-05 15:40:40,806 - WARNING - Could not find Timer tab
+2025-10-05 15:40:40,807 - INFO - Test 6: Navigation between tabs
+2025-10-05 15:40:40,829 - WARNING - Could not find Alarm tab
+2025-10-05 15:40:40,855 - WARNING - Could not find World clock tab
+2025-10-05 15:40:40,880 - WARNING - Could not find Stopwatch tab
+2025-10-05 15:40:40,904 - WARNING - Could not find Timer tab
+2025-10-05 15:40:40,904 - INFO - Navigation test: 0/4 tabs accessible
+2025-10-05 15:40:40,904 - ERROR - No tabs were accessible
+2025-10-05 15:40:40,904 - INFO - Clock app test results: 5/6 tests passed
+2025-10-05 15:40:40,904 - WARNING - 1 Clock app tests failed
+2025-10-05 15:40:41,285 - INFO - Driver closed

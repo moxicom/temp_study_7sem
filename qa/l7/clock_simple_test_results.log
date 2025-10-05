@@ -1,0 +1,104 @@
+2025-10-05 15:41:47,639 - INFO - Starting simple Clock app testing
+2025-10-05 15:41:49,053 - INFO - Successfully connected to Appium server
+2025-10-05 15:41:49,053 - INFO - Test 1: Launch Clock app from launcher
+2025-10-05 15:41:52,243 - INFO - Clicked Clock app icon
+2025-10-05 15:41:57,259 - INFO - Current activity after launch: com.android.deskclock.DeskClock
+2025-10-05 15:41:57,259 - INFO - Clock app launched successfully
+2025-10-05 15:41:57,259 - INFO - Test 2: Check Clock interface elements
+2025-10-05 15:42:00,289 - INFO - Found 10 text views
+2025-10-05 15:42:00,295 - INFO - Found clock tab: Alarm
+2025-10-05 15:42:00,315 - INFO - Found clock tab: Alarm
+2025-10-05 15:42:00,319 - INFO - Found clock tab: Clock
+2025-10-05 15:42:00,323 - INFO - Found clock tab: Timer
+2025-10-05 15:42:00,326 - INFO - Found clock tab: Stopwatch
+2025-10-05 15:42:00,329 - INFO - Found clock tabs: ['Alarm', 'Alarm', 'Clock', 'Timer', 'Stopwatch']
+2025-10-05 15:42:00,329 - INFO - Test 3: Alarm tab interaction
+2025-10-05 15:42:00,419 - INFO - Clicked Alarm tab
+2025-10-05 15:42:02,922 - WARNING - Could not find Add alarm button
+2025-10-05 15:42:02,922 - INFO - Test 4: Gesture interactions
+2025-10-05 15:42:04,251 - INFO - Performed long press on element
+2025-10-05 15:42:05,251 - INFO - Gesture interactions successful
+2025-10-05 15:42:05,251 - INFO - Test 5: Screen orientation test
+2025-10-05 15:42:05,623 - INFO - Current orientation: PORTRAIT
+2025-10-05 15:42:05,809 - INFO - Rotated to LANDSCAPE
+2025-10-05 15:42:08,921 - INFO - Rotated back to PORTRAIT
+2025-10-05 15:42:08,921 - INFO - Screen orientation test successful
+2025-10-05 15:42:08,921 - INFO - Simple Clock test results: 5/5 tests passed
+2025-10-05 15:42:08,921 - INFO - All Simple Clock tests passed successfully!
+2025-10-05 15:42:09,441 - INFO - Driver closed
+2025-10-05 15:42:43,430 - INFO - Starting simple Clock app testing
+2025-10-05 15:42:44,846 - INFO - Successfully connected to Appium server
+2025-10-05 15:42:44,846 - INFO - Test 1: Launch Clock app from launcher
+2025-10-05 15:42:47,983 - WARNING - Could not find Clock app icon
+2025-10-05 15:42:47,983 - INFO - Test 2: Check Clock interface elements
+2025-10-05 15:42:51,013 - INFO - Found 14 text views
+2025-10-05 15:42:51,068 - WARNING - No clock tabs found
+2025-10-05 15:42:51,068 - INFO - Test 3: Alarm tab interaction
+2025-10-05 15:42:51,090 - WARNING - Could not find Alarm tab
+2025-10-05 15:42:51,090 - INFO - Test 4: Gesture interactions
+2025-10-05 15:42:52,407 - INFO - Performed long press on element
+2025-10-05 15:42:53,407 - INFO - Gesture interactions successful
+2025-10-05 15:42:53,407 - INFO - Test 5: Screen orientation test
+2025-10-05 15:42:53,412 - INFO - Current orientation: PORTRAIT
+2025-10-05 15:42:53,517 - INFO - Rotated to LANDSCAPE
+2025-10-05 15:42:56,625 - INFO - Rotated back to PORTRAIT
+2025-10-05 15:42:56,625 - INFO - Screen orientation test successful
+2025-10-05 15:42:56,625 - INFO - Simple Clock test results: 4/5 tests passed
+2025-10-05 15:42:56,625 - WARNING - 1 Simple Clock tests failed
+2025-10-05 15:42:56,753 - INFO - Driver closed
+2025-10-05 15:56:56,979 - INFO - Starting simple Clock app testing
+2025-10-05 15:56:58,492 - INFO - Successfully connected to Appium server
+2025-10-05 15:56:58,492 - INFO - Test 1: Launch Clock app from launcher
+2025-10-05 15:57:01,741 - INFO - Clicked Clock app icon
+2025-10-05 15:57:06,793 - INFO - Current activity after launch: com.android.deskclock.DeskClock
+2025-10-05 15:57:06,793 - INFO - Clock app launched successfully
+2025-10-05 15:57:06,793 - INFO - Test 2: Check Clock interface elements
+2025-10-05 15:57:09,868 - INFO - Found 14 text views
+2025-10-05 15:57:09,875 - INFO - Found clock tab: Alarm
+2025-10-05 15:57:09,913 - INFO - Found clock tab: Alarm
+2025-10-05 15:57:09,916 - INFO - Found clock tab: Clock
+2025-10-05 15:57:09,920 - INFO - Found clock tab: Timer
+2025-10-05 15:57:09,925 - INFO - Found clock tab: Stopwatch
+2025-10-05 15:57:09,929 - INFO - Found clock tabs: ['Alarm', 'Alarm', 'Clock', 'Timer', 'Stopwatch']
+2025-10-05 15:57:09,929 - INFO - Test 3: Alarm tab interaction
+2025-10-05 15:57:10,036 - INFO - Clicked Alarm tab
+2025-10-05 15:57:12,073 - WARNING - Could not find Add alarm button
+2025-10-05 15:57:12,074 - INFO - Test 4: Gesture interactions
+2025-10-05 15:57:13,431 - INFO - Performed long press on element
+2025-10-05 15:57:14,431 - INFO - Gesture interactions successful
+2025-10-05 15:57:14,431 - INFO - Test 5: Screen orientation test
+2025-10-05 15:57:14,816 - INFO - Current orientation: PORTRAIT
+2025-10-05 15:57:14,924 - INFO - Rotated to LANDSCAPE
+2025-10-05 15:57:18,032 - INFO - Rotated back to PORTRAIT
+2025-10-05 15:57:18,032 - INFO - Screen orientation test successful
+2025-10-05 15:57:18,032 - INFO - Simple Clock test results: 5/5 tests passed
+2025-10-05 15:57:18,032 - INFO - All Simple Clock tests passed successfully!
+2025-10-05 15:57:18,621 - INFO - Driver closed
+2025-10-05 16:43:35,703 - INFO - Starting simple Clock app testing
+2025-10-05 16:43:38,344 - INFO - Successfully connected to Appium server
+2025-10-05 16:43:38,344 - INFO - Test 1: Launch Clock app from launcher
+2025-10-05 16:43:41,531 - INFO - Clicked Clock app icon
+2025-10-05 16:43:46,606 - INFO - Current activity after launch: com.android.deskclock.DeskClock
+2025-10-05 16:43:46,606 - INFO - Clock app launched successfully
+2025-10-05 16:43:46,606 - INFO - Test 2: Check Clock interface elements
+2025-10-05 16:43:49,678 - INFO - Found 10 text views
+2025-10-05 16:43:49,686 - INFO - Found clock tab: Alarm
+2025-10-05 16:43:49,714 - INFO - Found clock tab: Alarm
+2025-10-05 16:43:49,719 - INFO - Found clock tab: Clock
+2025-10-05 16:43:49,723 - INFO - Found clock tab: Timer
+2025-10-05 16:43:49,729 - INFO - Found clock tab: Stopwatch
+2025-10-05 16:43:49,734 - INFO - Found clock tabs: ['Alarm', 'Alarm', 'Clock', 'Timer', 'Stopwatch']
+2025-10-05 16:43:49,734 - INFO - Test 3: Alarm tab interaction
+2025-10-05 16:43:49,815 - INFO - Clicked Alarm tab
+2025-10-05 16:43:51,848 - WARNING - Could not find Add alarm button
+2025-10-05 16:43:51,849 - INFO - Test 4: Gesture interactions
+2025-10-05 16:43:53,183 - INFO - Performed long press on element
+2025-10-05 16:43:54,183 - INFO - Gesture interactions successful
+2025-10-05 16:43:54,183 - INFO - Test 5: Screen orientation test
+2025-10-05 16:43:54,240 - INFO - Current orientation: PORTRAIT
+2025-10-05 16:43:55,424 - INFO - Rotated to LANDSCAPE
+2025-10-05 16:43:59,525 - INFO - Rotated back to PORTRAIT
+2025-10-05 16:43:59,525 - INFO - Screen orientation test successful
+2025-10-05 16:43:59,525 - INFO - Simple Clock test results: 5/5 tests passed
+2025-10-05 16:43:59,525 - INFO - All Simple Clock tests passed successfully!
+2025-10-05 16:43:59,665 - INFO - Driver closed

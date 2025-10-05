@@ -118,9 +118,7 @@ class EnvironmentTester:
             logger.info("🔍 Тест 4: Проверка структуры файлов")
             
             required_files = [
-                "test_notes_app.py",
-                "test_calculator_app.py", 
-                "run_all_tests.py",
+                "test_clock.py",
                 "test_config.py",
                 "requirements.txt",
                 "Makefile",
