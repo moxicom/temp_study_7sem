@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Фоновое изображение для ландшафтной ориентации -->
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop" />
+
+    <!-- Контейнер для текста -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            style="@style/SpecialText"
+            android:id="@+id/my_text"
+            android:text="@string/text"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"/>
+
+        <TextView
+            style="@style/CustomFontStyle"
+            android:id="@+id/custom_font_text"
+            android:text="@string/custom_font_demo"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_marginStart="20dp"
+            android:padding="8dp"/>
+    </LinearLayout>
+</RelativeLayout>

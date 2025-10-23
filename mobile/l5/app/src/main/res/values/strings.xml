@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Resources</string>
+    <string name="text">Hello world!</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="color">Color</string>
+    <string name="exit">Exit</string>
+    <string name="custom_font_demo">Custom Font</string>
+</resources>

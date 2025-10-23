@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="SpecialText" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">#548f00</item>
+        <item name="android:background">#b7e4fb</item>
+        <item name="android:fontFamily">@font/lobster</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="CustomFontStyle" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#FF5722</item>
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">4</item>
+    </style>
+</resources>
