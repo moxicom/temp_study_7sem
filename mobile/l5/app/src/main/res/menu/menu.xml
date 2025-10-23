@@ -9,6 +9,8 @@
                 android:title="@string/red"/>
             <item android:id="@+id/green"
                 android:title="@string/green"/>
+            <item android:id="@+id/random_color"
+                android:title="@string/random_color"/>
         </menu>
     </item>
     <item android:id="@+id/exit"

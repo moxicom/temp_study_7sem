@@ -7,8 +7,18 @@ import android.view.MenuItem
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
+    private val colors = listOf(
+        R.color.red,
+        R.color.green,
+        R.color.blue,
+        R.color.colorPrimary,
+        R.color.colorPrimaryDark,
+        R.color.colorAccent
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,6 +43,11 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.blue -> {
                 myLayout.setBackgroundColor(ContextCompat.getColor(this, R.color.blue))
+                true
+            }
+            R.id.random_color -> {
+                val randomColor = colors[Random.nextInt(colors.size)]
+                myLayout.setBackgroundColor(ContextCompat.getColor(this, randomColor))
                 true
             }
             R.id.exit -> {
