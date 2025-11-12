@@ -10,6 +10,12 @@ def main():
     options = Options()
     # options.add_argument("--headless")  # для headless надо раскомментировать
     options.add_argument("--start-maximized")
+    # Опции для исправления проблемы с data: URL на macOS
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('useAutomationExtension', False)
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
     # Инициализация Chrome через webdriver-manager
     service = ChromeService(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)

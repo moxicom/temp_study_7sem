@@ -9,6 +9,13 @@ from pages.login_page import LoginPage
 def driver():
     options = Options()
     options.add_argument("--window-size=1920,1080")
+    # Опции для исправления проблемы с data: URL на macOS
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('useAutomationExtension', False)
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
+    
     service = ChromeService(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
     yield driver
