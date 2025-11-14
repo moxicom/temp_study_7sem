@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="button_primary">#FF6200EE</color>
+    <color name="button_secondary">#FF03DAC5</color>
+    <color name="button_danger">#FFB00020</color>
+    <color name="button_success">#FF018786</color>
 </resources>
