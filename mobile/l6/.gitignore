@@ -1,0 +1,19 @@
+// Source - https://stackoverflow.com/a
+// Posted by Soufian, modified by community. See post 'Timeline' for change history
+// Retrieved 2025-11-14, License - CC BY-SA 4.0
+
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
