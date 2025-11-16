@@ -1,9 +1,9 @@
 package com.aemarkov.lab6
 
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity(), MyDialogFragment.MyDialogFragmentListener {
 
