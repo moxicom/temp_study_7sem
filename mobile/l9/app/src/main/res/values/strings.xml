@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">Учет расходов</string>
+    
+    <!-- MainActivity -->
+    <string name="expenses_title">Мои расходы</string>
+    <string name="total_expenses">Всего: %1$s ₽</string>
+    <string name="no_expenses">Нет расходов</string>
+    <string name="add_expense">Добавить расход</string>
+    <string name="filter_by_category">Фильтр по категории</string>
+    <string name="filter_by_date">Фильтр по дате</string>
+    <string name="all_categories">Все категории</string>
+    <string name="search_hint">Поиск по описанию</string>
+    <string name="sync_error">Ошибка синхронизации</string>
+    <string name="delete_expense">Удалить расход</string>
+    <string name="edit_expense">Редактировать</string>
+    
+    <!-- AddEditExpenseActivity -->
+    <string name="add_expense_title">Добавить расход</string>
+    <string name="edit_expense_title">Редактировать расход</string>
+    <string name="amount">Сумма</string>
+    <string name="amount_hint">Введите сумму</string>
+    <string name="category">Категория</string>
+    <string name="select_category">Выберите категорию</string>
+    <string name="description">Описание</string>
+    <string name="description_hint">Введите описание (необязательно)</string>
+    <string name="date">Дата</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
+    <string name="invalid_amount">Введите корректную сумму</string>
+    <string name="invalid_category">Выберите категорию</string>
+    <string name="save_success">Расход сохранен</string>
+    <string name="save_error">Ошибка при сохранении</string>
+    
+    <!-- StatisticsActivity -->
+    <string name="statistics_title">Статистика</string>
+    <string name="total_amount">Общая сумма</string>
+    <string name="expense_count">Количество расходов</string>
+    <string name="by_category">По категориям</string>
+    <string name="period_day">День</string>
+    <string name="period_week">Неделя</string>
+    <string name="period_month">Месяц</string>
+    <string name="period_year">Год</string>
+    <string name="select_period">Выберите период</string>
+    <string name="no_statistics">Нет данных для отображения</string>
+    
+    <!-- SettingsActivity -->
+    <string name="settings_title">Настройки</string>
+    <string name="notifications">Уведомления</string>
+    <string name="enable_notifications">Включить уведомления</string>
+    <string name="notification_time">Время уведомления</string>
+    <string name="budget_limit">Лимит бюджета</string>
+    <string name="budget_limit_hint">Введите лимит бюджета</string>
+    <string name="api_url">URL API сервера</string>
+    <string name="api_url_hint">Введите URL API</string>
+    <string name="about">О приложении</string>
+    <string name="app_version">Версия 1.0</string>
+    <string name="save_settings">Сохранить настройки</string>
+    <string name="settings_saved">Настройки сохранены</string>
+    
+    <!-- Categories -->
+    <string name="category_food">Продукты</string>
+    <string name="category_transport">Транспорт</string>
+    <string name="category_entertainment">Развлечения</string>
+    <string name="category_shopping">Покупки</string>
+    <string name="category_bills">Счета</string>
+    <string name="category_health">Здоровье</string>
+    <string name="category_other">Другое</string>
+    
+    <!-- Common -->
+    <string name="error">Ошибка</string>
+    <string name="ok">OK</string>
+    <string name="loading">Загрузка...</string>
+    <string name="retry">Повторить</string>
+    <string name="delete">Удалить</string>
+    <string name="confirm_delete">Удалить этот расход?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+</resources>

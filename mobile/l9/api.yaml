@@ -1,0 +1,392 @@
+openapi: 3.0.0
+info:
+  title: Expense Tracker API
+  description: API для мобильного приложения учета расходов
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8080/api
+    description: Локальный сервер разработки
+  - url: https://api.example.com/api
+    description: Продакшн сервер
+
+paths:
+  /expenses:
+    get:
+      summary: Получить список расходов
+      description: Возвращает список всех расходов с возможностью фильтрации
+      parameters:
+        - name: category
+          in: query
+          description: Фильтр по категории
+          required: false
+          schema:
+            type: string
+        - name: startDate
+          in: query
+          description: Начальная дата (формат ISO 8601)
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: endDate
+          in: query
+          description: Конечная дата (формат ISO 8601)
+          required: false
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  expenses:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Expense'
+        '500':
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    
+    post:
+      summary: Создать новый расход
+      description: Добавляет новый расход в базу данных
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExpenseRequest'
+      responses:
+        '201':
+          description: Расход успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          description: Неверные данные запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /expenses/{id}:
+    get:
+      summary: Получить расход по ID
+      description: Возвращает информацию о конкретном расходе
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID расхода
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '404':
+          description: Расход не найден
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    
+    put:
+      summary: Обновить расход
+      description: Обновляет информацию о расходе
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID расхода
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExpenseRequest'
+      responses:
+        '200':
+          description: Расход успешно обновлен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Expense'
+        '400':
+          description: Неверные данные запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Расход не найден
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    
+    delete:
+      summary: Удалить расход
+      description: Удаляет расход из базы данных
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID расхода
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Расход успешно удален
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Expense deleted successfully"
+        '404':
+          description: Расход не найден
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /expenses/statistics:
+    get:
+      summary: Получить статистику расходов
+      description: Возвращает статистику расходов по категориям и периодам
+      parameters:
+        - name: period
+          in: query
+          description: Период статистики (day, week, month, year)
+          required: false
+          schema:
+            type: string
+            enum: [day, week, month, year]
+            default: month
+        - name: startDate
+          in: query
+          description: Начальная дата (формат ISO 8601)
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: endDate
+          in: query
+          description: Конечная дата (формат ISO 8601)
+          required: false
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statistics'
+        '500':
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /categories:
+    get:
+      summary: Получить список категорий
+      description: Возвращает список всех доступных категорий расходов
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  categories:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+        '500':
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Expense:
+      type: object
+      required:
+        - id
+        - amount
+        - category
+        - date
+      properties:
+        id:
+          type: integer
+          description: Уникальный идентификатор расхода
+        amount:
+          type: number
+          format: double
+          description: Сумма расхода
+          minimum: 0
+        category:
+          type: string
+          description: Категория расхода
+          example: "Продукты"
+        description:
+          type: string
+          description: Описание расхода
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          description: Дата и время расхода (ISO 8601)
+        createdAt:
+          type: string
+          format: date-time
+          description: Дата создания записи
+        updatedAt:
+          type: string
+          format: date-time
+          description: Дата последнего обновления
+
+    ExpenseRequest:
+      type: object
+      required:
+        - amount
+        - category
+        - date
+      properties:
+        amount:
+          type: number
+          format: double
+          description: Сумма расхода
+          minimum: 0
+        category:
+          type: string
+          description: Категория расхода
+          example: "Продукты"
+        description:
+          type: string
+          description: Описание расхода
+          nullable: true
+        date:
+          type: string
+          format: date-time
+          description: Дата и время расхода (ISO 8601)
+
+    Category:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          description: Уникальный идентификатор категории
+        name:
+          type: string
+          description: Название категории
+          example: "Продукты"
+        icon:
+          type: string
+          description: Иконка категории (опционально)
+          nullable: true
+
+    Statistics:
+      type: object
+      properties:
+        totalAmount:
+          type: number
+          format: double
+          description: Общая сумма расходов за период
+        expenseCount:
+          type: integer
+          description: Количество расходов за период
+        byCategory:
+          type: array
+          description: Статистика по категориям
+          items:
+            type: object
+            properties:
+              category:
+                type: string
+                example: "Продукты"
+              amount:
+                type: number
+                format: double
+              count:
+                type: integer
+        byPeriod:
+          type: array
+          description: Статистика по периодам (для графиков)
+          items:
+            type: object
+            properties:
+              period:
+                type: string
+                example: "2024-01"
+              amount:
+                type: number
+                format: double
+
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: Сообщение об ошибке
+        code:
+          type: integer
+          description: Код ошибки
+        details:
+          type: string
+          description: Дополнительные детали ошибки
+          nullable: true
+

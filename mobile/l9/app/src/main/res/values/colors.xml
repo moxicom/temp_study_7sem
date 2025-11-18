@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="brand_primary">#6750A4</color>
+    <color name="brand_secondary">#03DAC6</color>
+    <color name="app_background">#FFF7F9FF</color>
+    <color name="text_primary">#FF1C1B1F</color>
+    
+    <!-- Expense Tracker Colors -->
+    <color name="primary">#6750A4</color>
+    <color name="primary_dark">#4F3A7A</color>
+    <color name="primary_light">#9A7FD4</color>
+    <color name="secondary">#03DAC6</color>
+    <color name="accent">#FF6B6B</color>
+    <color name="background">#FFF7F9FF</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="error">#B00020</color>
+    <color name="text_primary_dark">#FF1C1B1F</color>
+    <color name="text_secondary">#FF757575</color>
+    <color name="divider">#FFE0E0E0</color>
+    
+    <!-- Category Colors -->
+    <color name="category_food">#FF6B9B</color>
+    <color name="category_transport">#4ECDC4</color>
+    <color name="category_entertainment">#FFE66D</color>
+    <color name="category_shopping">#A8E6CF</color>
+    <color name="category_bills">#FF8B94</color>
+    <color name="category_health">#95E1D3</color>
+    <color name="category_other">#C7CEEA</color>
+</resources>
