@@ -1,8 +1,6 @@
 package com.aemarkov.lab9
 
 import android.app.TimePickerDialog
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,13 +15,6 @@ import java.util.*
 class SettingsActivity : AppCompatActivity() {
     
     private lateinit var binding: ActivitySettingsBinding
-    private lateinit var prefs: SharedPreferences
-    
-    private val PREFS_NAME = "app_prefs"
-    private val KEY_NOTIFICATIONS_ENABLED = "notifications_enabled"
-    private val KEY_NOTIFICATION_HOUR = "notification_hour"
-    private val KEY_NOTIFICATION_MINUTE = "notification_minute"
-    private val KEY_BUDGET_LIMIT = "budget_limit"
     
     private val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
 
@@ -35,8 +26,6 @@ class SettingsActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.settings_title)
-        
-        prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         
         loadSettings()
         setupViews()
@@ -66,12 +55,12 @@ class SettingsActivity : AppCompatActivity() {
     
     private fun loadSettings() {
         // Загружаем настройки уведомлений
-        val notificationsEnabled = prefs.getBoolean(KEY_NOTIFICATIONS_ENABLED, false)
+        val notificationsEnabled = AppData.prefs.getBoolean(AppData.KEY_NOTIFICATIONS_ENABLED, false)
         binding.switchNotifications.isChecked = notificationsEnabled
         binding.tilNotificationTime.isEnabled = notificationsEnabled
         
-        val hour = prefs.getInt(KEY_NOTIFICATION_HOUR, 9)
-        val minute = prefs.getInt(KEY_NOTIFICATION_MINUTE, 0)
+        val hour = AppData.prefs.getInt(AppData.KEY_NOTIFICATION_HOUR, 9)
+        val minute = AppData.prefs.getInt(AppData.KEY_NOTIFICATION_MINUTE, 0)
         val calendar = Calendar.getInstance().apply {
             set(Calendar.HOUR_OF_DAY, hour)
             set(Calendar.MINUTE, minute)
@@ -79,7 +68,7 @@ class SettingsActivity : AppCompatActivity() {
         binding.etNotificationTime.setText(timeFormat.format(calendar.time))
         
         // Загружаем лимит бюджета
-        val budgetLimit = prefs.getFloat(KEY_BUDGET_LIMIT, 0f)
+        val budgetLimit = AppData.prefs.getFloat(AppData.KEY_BUDGET_LIMIT, 0f)
         if (budgetLimit > 0) {
             binding.etBudgetLimit.setText(budgetLimit.toString())
         }
@@ -140,10 +129,10 @@ class SettingsActivity : AppCompatActivity() {
     }
     
     private fun saveSettings() {
-        val editor = prefs.edit()
+        val editor = AppData.prefs.edit()
         
         // Сохраняем настройки уведомлений
-        editor.putBoolean(KEY_NOTIFICATIONS_ENABLED, binding.switchNotifications.isChecked)
+        editor.putBoolean(AppData.KEY_NOTIFICATIONS_ENABLED, binding.switchNotifications.isChecked)
         
         val timeText = binding.etNotificationTime.text.toString()
         if (timeText.isNotEmpty()) {
@@ -153,8 +142,8 @@ class SettingsActivity : AppCompatActivity() {
                     val calendar = Calendar.getInstance().apply {
                         this.time = time
                     }
-                    editor.putInt(KEY_NOTIFICATION_HOUR, calendar.get(Calendar.HOUR_OF_DAY))
-                    editor.putInt(KEY_NOTIFICATION_MINUTE, calendar.get(Calendar.MINUTE))
+                    editor.putInt(AppData.KEY_NOTIFICATION_HOUR, calendar.get(Calendar.HOUR_OF_DAY))
+                    editor.putInt(AppData.KEY_NOTIFICATION_MINUTE, calendar.get(Calendar.MINUTE))
                 }
             } catch (e: Exception) {
                 // Ошибка парсинга времени
@@ -166,7 +155,7 @@ class SettingsActivity : AppCompatActivity() {
         if (budgetLimitText.isNotEmpty()) {
             try {
                 val budgetLimit = budgetLimitText.toFloat()
-                editor.putFloat(KEY_BUDGET_LIMIT, budgetLimit)
+                editor.putFloat(AppData.KEY_BUDGET_LIMIT, budgetLimit)
             } catch (e: Exception) {
                 // Ошибка парсинга
             }

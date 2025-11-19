@@ -15,8 +15,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aemarkov.lab9.adapter.ExpenseAdapter
-import com.aemarkov.lab9.api.ApiClient
-import com.aemarkov.lab9.api.ApiService
 import com.aemarkov.lab9.databinding.ActivityMainBinding
 import com.aemarkov.lab9.model.Expense
 import com.aemarkov.lab9.util.DateUtils
@@ -30,7 +28,6 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     
     private lateinit var binding: ActivityMainBinding
-    private lateinit var apiService: ApiService
     private lateinit var expenseAdapter: ExpenseAdapter
     private lateinit var categorySpinner: Spinner
     private lateinit var searchEditText: TextInputEditText
@@ -57,8 +54,6 @@ class MainActivity : AppCompatActivity() {
             setContentView(binding.root)
             
             setSupportActionBar(binding.toolbar)
-            
-            apiService = ApiClient.getApiService(this)
             
             setupRecyclerView()
             setupViews()
@@ -137,7 +132,7 @@ class MainActivity : AppCompatActivity() {
         
         lifecycleScope.launch {
             try {
-                val response = apiService.getExpenses()
+                val response = AppData.apiService.getExpenses()
                 if (response.isSuccessful) {
                     allExpenses = response.body()?.expenses ?: emptyList()
                     filterExpenses()
@@ -214,7 +209,7 @@ class MainActivity : AppCompatActivity() {
             
             lifecycleScope.launch {
                 try {
-                    val response = apiService.deleteExpense(id)
+                    val response = AppData.apiService.deleteExpense(id)
                     if (response.isSuccessful) {
                         loadExpenses()
                         Toast.makeText(this@MainActivity, "Расход удален", Toast.LENGTH_SHORT).show()
@@ -266,7 +261,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         // Обновляем список при возврате на экран только если активность уже была создана
-        if (::binding.isInitialized && ::apiService.isInitialized) {
+        if (::binding.isInitialized) {
             loadExpenses()
         }
     }

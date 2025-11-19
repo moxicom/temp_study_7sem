@@ -8,8 +8,6 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.aemarkov.lab9.api.ApiClient
-import com.aemarkov.lab9.api.ApiService
 import com.aemarkov.lab9.databinding.ActivityAddEditExpenseBinding
 import com.aemarkov.lab9.model.ExpenseRequest
 import com.aemarkov.lab9.util.DateUtils
@@ -21,7 +19,6 @@ import java.util.*
 class AddEditExpenseActivity : AppCompatActivity() {
     
     private lateinit var binding: ActivityAddEditExpenseBinding
-    private lateinit var apiService: ApiService
     
     private var expenseId: Int? = null
     private var isEditMode = false
@@ -43,8 +40,6 @@ class AddEditExpenseActivity : AppCompatActivity() {
         
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        
-        apiService = ApiClient.getApiService(this)
         
         expenseId = intent.getIntExtra("expense_id", -1).takeIf { it != -1 }
         isEditMode = expenseId != null
@@ -117,7 +112,7 @@ class AddEditExpenseActivity : AppCompatActivity() {
             
             lifecycleScope.launch {
                 try {
-                    val response = apiService.getExpense(id)
+                    val response = AppData.apiService.getExpense(id)
                     if (response.isSuccessful) {
                         val expense = response.body()
                         expense?.let {
@@ -179,13 +174,13 @@ class AddEditExpenseActivity : AppCompatActivity() {
         
         binding.progressIndicator.visibility = View.VISIBLE
         
-        lifecycleScope.launch {
-            try {
-                val response = if (isEditMode && expenseId != null) {
-                    apiService.updateExpense(expenseId!!, expenseRequest)
-                } else {
-                    apiService.createExpense(expenseRequest)
-                }
+            lifecycleScope.launch {
+                try {
+                    val response = if (isEditMode && expenseId != null) {
+                        AppData.apiService.updateExpense(expenseId!!, expenseRequest)
+                    } else {
+                        AppData.apiService.createExpense(expenseRequest)
+                    }
                 
                 if (response.isSuccessful) {
                     Toast.makeText(this@AddEditExpenseActivity, R.string.save_success, Toast.LENGTH_SHORT).show()

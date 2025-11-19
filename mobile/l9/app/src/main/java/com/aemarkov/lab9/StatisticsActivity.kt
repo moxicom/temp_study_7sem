@@ -11,8 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.aemarkov.lab9.adapter.CategoryAdapter
-import com.aemarkov.lab9.api.ApiClient
-import com.aemarkov.lab9.api.ApiService
 import com.aemarkov.lab9.databinding.ActivityStatisticsBinding
 import com.aemarkov.lab9.model.Statistics
 import com.aemarkov.lab9.util.DateUtils
@@ -24,7 +22,6 @@ import java.util.*
 class StatisticsActivity : AppCompatActivity() {
     
     private lateinit var binding: ActivityStatisticsBinding
-    private lateinit var apiService: ApiService
     private lateinit var categoryAdapter: CategoryAdapter
     
     private val periods = listOf(
@@ -49,8 +46,6 @@ class StatisticsActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.statistics_title)
-        
-        apiService = ApiClient.getApiService(this)
         
         setupRecyclerView()
         setupViews()
@@ -85,7 +80,7 @@ class StatisticsActivity : AppCompatActivity() {
         
         lifecycleScope.launch {
             try {
-                val response = apiService.getStatistics(period = periodValue)
+                val response = AppData.apiService.getStatistics(period = periodValue)
                 if (response.isSuccessful) {
                     val statistics: Statistics? = response.body()
                     statistics?.let {
