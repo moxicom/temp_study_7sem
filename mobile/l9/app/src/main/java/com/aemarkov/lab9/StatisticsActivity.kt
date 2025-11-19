@@ -59,7 +59,6 @@ class StatisticsActivity : AppCompatActivity() {
     }
     
     private fun setupViews() {
-        // Настройка Spinner периодов
         val periodAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, periods)
         periodAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerPeriod.adapter = periodAdapter

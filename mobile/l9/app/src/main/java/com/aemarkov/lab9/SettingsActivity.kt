@@ -24,39 +24,35 @@ class SettingsActivity : AppCompatActivity() {
     }
     
     private fun setupViews() {
-        // Кнопка сохранения
+        // сохраненить
         binding.btnSaveSettings.setOnClickListener {
             saveSettings()
         }
     }
     
     private fun loadSettings() {
-        // Загружаем лимит бюджета
+        // лимит бюджета
         val budgetLimit = AppData.prefs.getFloat(AppData.KEY_BUDGET_LIMIT, 0f)
         if (budgetLimit > 0) {
             binding.etBudgetLimit.setText(budgetLimit.toString())
         }
         
-        // Загружаем URL API
+        // URL API
         val apiUrl = ApiClient.getBaseUrl(this)
         binding.etApiUrl.setText(apiUrl)
     }
     
     private fun saveSettings() {
         val editor = AppData.prefs.edit()
-        
-        // Сохраняем лимит бюджета
         val budgetLimitText = binding.etBudgetLimit.text.toString()
         if (budgetLimitText.isNotEmpty()) {
             try {
                 val budgetLimit = budgetLimitText.toFloat()
                 editor.putFloat(AppData.KEY_BUDGET_LIMIT, budgetLimit)
             } catch (e: Exception) {
-                // Ошибка парсинга
             }
         }
         
-        // Сохраняем URL API
         val apiUrl = binding.etApiUrl.text.toString()
         if (apiUrl.isNotEmpty()) {
             ApiClient.updateBaseUrl(this, apiUrl)

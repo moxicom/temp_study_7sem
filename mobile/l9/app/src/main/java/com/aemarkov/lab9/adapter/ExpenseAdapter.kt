@@ -46,7 +46,7 @@ class ExpenseAdapter(
             tvCategory.text = expense.category
             tvAmount.text = "${numberFormat.format(expense.amount)} ₽"
             tvDescription.text = expense.description ?: ""
-            tvDate.text = DateUtils.formatForDisplay(expense.date)
+            tvDate.text = DateUtils.formatForCard(expense.date)
             
             itemView.setOnClickListener {
                 onItemClick(expense)

@@ -165,12 +165,12 @@ class MainActivity : AppCompatActivity() {
         
         var filtered = allExpenses
         
-        // Фильтр по категории
+        // фльитр по категориям
         if (selectedCategory != null) {
             filtered = filtered.filter { it.category == selectedCategory }
         }
         
-        // Фильтр по поисковому запросу
+        // фильтр по поисковому запросу
         if (searchQuery.isNotEmpty()) {
             filtered = filtered.filter {
                 it.description?.lowercase()?.contains(searchQuery) == true ||

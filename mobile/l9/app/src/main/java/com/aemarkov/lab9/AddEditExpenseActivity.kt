@@ -107,7 +107,10 @@ class AddEditExpenseActivity : AppCompatActivity() {
         
         // Пытаемся распарсить текущую дату
         val currentDate = if (date.isNotEmpty()) {
-            DateUtils.parseFromIso(date) ?: Date()
+            // Сначала пытаемся распарсить как ISO строку (если пришло с сервера)
+            DateUtils.parseFromIso(date) 
+                ?: DateUtils.parseFromDisplay(date) // Или как отображаемую дату
+                ?: Date()
         } else {
             Date()
         }
@@ -176,13 +179,8 @@ class AddEditExpenseActivity : AppCompatActivity() {
         val dateText = binding.etDate.text.toString()
         
         // Преобразуем дату в ISO формат
-        // dateText в формате dd.MM.yyyy, нужно распарсить
-        val date = try {
-            val dateFormat = java.text.SimpleDateFormat("dd.MM.yyyy", java.util.Locale.getDefault())
-            dateFormat.parse(dateText) ?: Date()
-        } catch (e: Exception) {
-            Date()
-        }
+        // dateText в формате dd.MM.yyyy, используем parseFromDisplay для правильной обработки
+        val date = DateUtils.parseFromDisplay(dateText) ?: Date()
         val isoDate = DateUtils.formatToIso(date)
         
         val expenseRequest = ExpenseRequest(

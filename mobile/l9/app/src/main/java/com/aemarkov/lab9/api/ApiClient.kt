@@ -50,8 +50,7 @@ object ApiClient {
             .readTimeout(10, TimeUnit.SECONDS)
             .writeTimeout(10, TimeUnit.SECONDS)
             .build()
-        
-        // Убеждаемся, что URL заканчивается на /
+
         val normalizedUrl = if (baseUrl.endsWith("/")) baseUrl else "$baseUrl/"
         
         return Retrofit.Builder()

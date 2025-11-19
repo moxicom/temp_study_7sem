@@ -7,7 +7,7 @@ object AppData {
     lateinit var apiService: ApiService
     lateinit var prefs: SharedPreferences
     
-    // Константы для SharedPreferences
+    // SharedPreferences
     const val PREFS_NAME = "app_prefs"
     const val KEY_BUDGET_LIMIT = "budget_limit"
 }
