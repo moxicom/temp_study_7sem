@@ -17,14 +17,9 @@ class NotificationWorker(context: Context, params: WorkerParameters) : Coroutine
     
     override suspend fun doWork(): Result {
         val notificationManager = applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        
-        // Создаем канал уведомлений
+
         createNotificationChannel(notificationManager)
-        
-        // Создаем уведомление
         val notification = createNotification(applicationContext)
-        
-        // Показываем уведомление
         notificationManager.notify(NOTIFICATION_ID, notification)
         
         return Result.success()
@@ -82,13 +77,12 @@ object NotificationService {
         // Отменяем предыдущую задачу
         workManager.cancelUniqueWork(WORK_NAME)
         
-        // Вычисляем время до следующего уведомления
+        // время до следующего уведомления
         val calendar = Calendar.getInstance().apply {
             set(Calendar.HOUR_OF_DAY, hour)
             set(Calendar.MINUTE, minute)
             set(Calendar.SECOND, 0)
-            
-            // Если время уже прошло сегодня, планируем на завтра
+
             if (timeInMillis <= System.currentTimeMillis()) {
                 add(Calendar.DAY_OF_MONTH, 1)
             }
@@ -100,7 +94,6 @@ object NotificationService {
             .setInitialDelay(delay, TimeUnit.MILLISECONDS)
             .build()
         
-        // Планируем периодическую задачу
         val periodicRequest = PeriodicWorkRequestBuilder<NotificationWorker>(1, TimeUnit.DAYS)
             .setInitialDelay(delay, TimeUnit.MILLISECONDS)
             .build()

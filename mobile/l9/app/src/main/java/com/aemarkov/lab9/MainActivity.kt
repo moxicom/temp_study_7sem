@@ -62,8 +62,8 @@ class MainActivity : AppCompatActivity() {
             
             setupRecyclerView()
             setupViews()
-            
-            // Загружаем расходы с небольшой задержкой, чтобы UI успел инициализироваться
+
+            // с небольшой задержкой, чтобы UI успел инициализироваться
             binding.root.post {
                 loadExpenses()
             }

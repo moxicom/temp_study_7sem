@@ -4,17 +4,21 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.aemarkov.lab9.R
 import com.aemarkov.lab9.model.CategoryStatistics
 import java.text.DecimalFormat
 
-class CategoryAdapter : ListAdapter<CategoryStatistics, CategoryAdapter.CategoryViewHolder>(CategoryDiffCallback()) {
+class CategoryAdapter : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
+    private var categories: List<CategoryStatistics> = emptyList()
     private var maxAmount: Double = 0.0
     private val numberFormat = DecimalFormat("#,###.00")
+
+    fun submitList(newList: List<CategoryStatistics>) {
+        categories = newList
+        notifyDataSetChanged()
+    }
 
     fun setMaxAmount(max: Double) {
         maxAmount = max
@@ -28,8 +32,10 @@ class CategoryAdapter : ListAdapter<CategoryStatistics, CategoryAdapter.Category
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.bind(getItem(position), maxAmount)
+        holder.bind(categories[position], maxAmount)
     }
+
+    override fun getItemCount(): Int = categories.size
 
     inner class CategoryViewHolder(itemView: android.view.View) : RecyclerView.ViewHolder(itemView) {
         private val tvCategoryName: TextView = itemView.findViewById(R.id.tvCategoryName)
@@ -49,16 +55,6 @@ class CategoryAdapter : ListAdapter<CategoryStatistics, CategoryAdapter.Category
             } else {
                 progressBar.progress = 0
             }
-        }
-    }
-
-    class CategoryDiffCallback : DiffUtil.ItemCallback<CategoryStatistics>() {
-        override fun areItemsTheSame(oldItem: CategoryStatistics, newItem: CategoryStatistics): Boolean {
-            return oldItem.category == newItem.category
-        }
-
-        override fun areContentsTheSame(oldItem: CategoryStatistics, newItem: CategoryStatistics): Boolean {
-            return oldItem == newItem
         }
     }
 }

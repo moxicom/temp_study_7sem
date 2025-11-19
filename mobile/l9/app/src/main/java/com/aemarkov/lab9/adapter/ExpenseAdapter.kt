@@ -4,20 +4,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.aemarkov.lab9.R
 import com.aemarkov.lab9.model.Expense
 import com.aemarkov.lab9.util.DateUtils
 import java.text.DecimalFormat
-import java.text.NumberFormat
-import java.util.*
 
 class ExpenseAdapter(
     private val onItemClick: (Expense) -> Unit,
     private val onItemLongClick: (Expense) -> Unit
-) : ListAdapter<Expense, ExpenseAdapter.ExpenseViewHolder>(ExpenseDiffCallback()) {
+) : RecyclerView.Adapter<ExpenseAdapter.ExpenseViewHolder>() {
+
+    private var expenses: List<Expense> = emptyList()
+
+    fun submitList(newList: List<Expense>) {
+        expenses = newList
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExpenseViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -26,8 +29,10 @@ class ExpenseAdapter(
     }
 
     override fun onBindViewHolder(holder: ExpenseViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(expenses[position])
     }
+
+    override fun getItemCount(): Int = expenses.size
 
     inner class ExpenseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvCategory: TextView = itemView.findViewById(R.id.tvCategory)
@@ -51,16 +56,6 @@ class ExpenseAdapter(
                 onItemLongClick(expense)
                 true
             }
-        }
-    }
-
-    class ExpenseDiffCallback : DiffUtil.ItemCallback<Expense>() {
-        override fun areItemsTheSame(oldItem: Expense, newItem: Expense): Boolean {
-            return oldItem.id == newItem.id
-        }
-
-        override fun areContentsTheSame(oldItem: Expense, newItem: Expense): Boolean {
-            return oldItem == newItem
         }
     }
 }
