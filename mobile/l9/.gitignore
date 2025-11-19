@@ -40,21 +40,7 @@ captures/
 
 # IntelliJ
 *.iml
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/gradle.xml
-.idea/assetWizardSettings.xml
-.idea/dictionaries
-.idea/libraries
-.idea/jarRepositories.xml
-.idea/caches
-.idea/modules.xml
-.idea/.name
-.idea/compiler.xml
-.idea/misc.xml
-.idea/vcs.xml
-.idea/deploymentTargetDropDown.xml
-.idea/render.experimental.xml
+.idea/
 
 # Keystore files
 *.jks
@@ -104,9 +90,7 @@ lint/tmp/
 *~
 
 # Generated files
-app/build/
-app/.cxx/
-app/.externalNativeBuild/
+# (app/build/ is already covered by build/ above)
 
 # API keys and secrets (if any)
 secrets.properties
