@@ -45,9 +45,6 @@
     
     <!-- SettingsActivity -->
     <string name="settings_title">Настройки</string>
-    <string name="notifications">Уведомления</string>
-    <string name="enable_notifications">Включить уведомления</string>
-    <string name="notification_time">Время уведомления</string>
     <string name="budget_limit">Лимит бюджета</string>
     <string name="budget_limit_hint">Введите лимит бюджета</string>
     <string name="api_url">URL API сервера</string>

@@ -1,16 +1,22 @@
 package com.aemarkov.lab9
 
+import android.Manifest
 import android.app.DatePickerDialog
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.aemarkov.lab9.databinding.ActivityAddEditExpenseBinding
 import com.aemarkov.lab9.model.ExpenseRequest
 import com.aemarkov.lab9.util.DateUtils
+import com.aemarkov.lab9.util.NotificationHelper
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
@@ -23,6 +29,8 @@ class AddEditExpenseActivity : AppCompatActivity() {
     private var expenseId: Int? = null
     private var isEditMode = false
     
+    private var pendingCategory: String? = null
+    
     private val categories = listOf(
         "Продукты",
         "Транспорт",
@@ -32,6 +40,18 @@ class AddEditExpenseActivity : AppCompatActivity() {
         "Здоровье",
         "Другое"
     )
+    
+    // Запрос разрешения на отправку уведомлений для Android 13+
+    private val notificationPermissionRequestLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted) {
+            pendingCategory?.let { category ->
+                NotificationHelper.showExpenseAddedNotification(this, category)
+            }
+        }
+        pendingCategory = null
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -183,6 +203,10 @@ class AddEditExpenseActivity : AppCompatActivity() {
                     }
                 
                 if (response.isSuccessful) {
+                    // Показываем уведомление только при добавлении нового расхода
+                    if (!isEditMode) {
+                        showNotificationIfPermitted(category)
+                    }
                     Toast.makeText(this@AddEditExpenseActivity, R.string.save_success, Toast.LENGTH_SHORT).show()
                     finish()
                 } else {
@@ -193,6 +217,27 @@ class AddEditExpenseActivity : AppCompatActivity() {
             } finally {
                 binding.progressIndicator.visibility = View.GONE
             }
+        }
+    }
+    
+    private fun showNotificationIfPermitted(category: String) {
+        // Проверка разрешения для Android 13+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            when {
+                ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) == PackageManager.PERMISSION_GRANTED -> {
+                    NotificationHelper.showExpenseAddedNotification(this, category)
+                }
+                else -> {
+                    pendingCategory = category
+                    notificationPermissionRequestLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                }
+            }
+        } else {
+            // Для версий Android ниже 13 разрешение не требуется
+            NotificationHelper.showExpenseAddedNotification(this, category)
         }
     }
     
