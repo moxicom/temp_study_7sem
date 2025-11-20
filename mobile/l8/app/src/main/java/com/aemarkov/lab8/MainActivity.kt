@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private const val CALL_PERMISSION_REQUEST_CODE = 100
         private const val CONTACTS_PERMISSION_REQUEST_CODE = 101
+        private const val CAMERA_PERMISSION_REQUEST_CODE = 102
         private const val PHONE_URI = "tel:+79001234567" // Демонстрационный номер
     }
 
@@ -43,6 +44,8 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnReadContacts).setOnClickListener {
             requestContactsRead()
         }
+
+        requestCameraPermission()
     }
     
     // Проверка разрешений и запуск звонка
@@ -68,6 +71,18 @@ class MainActivity : AppCompatActivity() {
             )
         } else {
             renderContacts()
+        }
+    }
+
+    private fun requestCameraPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.CAMERA),
+                CAMERA_PERMISSION_REQUEST_CODE
+            )
+        } else {
+            Toast.makeText(this, "выдали разрешение на исп. камеры", Toast.LENGTH_SHORT).show()
         }
     }
     
@@ -132,6 +147,13 @@ class MainActivity : AppCompatActivity() {
                     renderContacts()
                 } else {
                     Toast.makeText(this, getString(R.string.contacts_permission_denied), Toast.LENGTH_SHORT).show()
+                }
+            }
+            CAMERA_PERMISSION_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "есть разрешение", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "нет разрешения", Toast.LENGTH_SHORT).show()
                 }
             }
         }

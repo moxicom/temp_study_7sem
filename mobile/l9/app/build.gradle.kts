@@ -15,6 +15,13 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        
+        // URL сервера из переменной окружения или gradle.properties, по умолчанию для эмулятора
+        val apiUrl = project.findProperty("API_BASE_URL") as String?
+            ?: System.getenv("API_BASE_URL")
+            ?: "http://10.0.2.2:8080/api"
+        
+        buildConfigField("String", "API_BASE_URL", "\"$apiUrl\"")
     }
 
     buildTypes {
@@ -25,6 +32,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

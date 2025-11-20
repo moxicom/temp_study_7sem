@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
-            android:text="Завершить"
+            android:text="End"
             android:backgroundTint="@color/button_danger" />
 
         <Button
@@ -35,7 +35,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
-            android:text="Отмена"
+            android:text="Cancel"
             android:backgroundTint="@color/button_secondary" />
 
         <Button
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_weight="1"
-            android:text="Отослать"
+            android:text="Send"
             android:backgroundTint="@color/button_success" />
     </LinearLayout>
 </LinearLayout>

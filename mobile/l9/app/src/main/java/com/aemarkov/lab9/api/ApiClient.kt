@@ -2,6 +2,7 @@ package com.aemarkov.lab9.api
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.aemarkov.lab9.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -11,7 +12,8 @@ import java.util.concurrent.TimeUnit
 object ApiClient {
     private const val PREFS_NAME = "app_prefs"
     private const val KEY_API_URL = "api_base_url"
-    private const val DEFAULT_API_URL = "http://10.0.2.2:8080/api" // Android emulator localhost
+    // URL из BuildConfig (читается из переменной окружения или gradle.properties)
+    private val DEFAULT_API_URL = BuildConfig.API_BASE_URL
     
     private var retrofit: Retrofit? = null
     private var apiService: ApiService? = null
