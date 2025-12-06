@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -12,13 +13,13 @@ int main() {
     for (int i = 0; i < 10 / stepX; i++) {
 
         if (xPos >= 0 && xPos <= 1) {
-            squareRect = stepX * (1.0 / (3.0 - xPos));
+            squareRect = stepX * (0.5 * xPos * xPos * xPos);
         }
-        else if (xPos > 1 && xPos <= 5) {
+        else if (xPos > 1 && xPos <= 8) {
             squareRect = stepX * 0.5;
         }
         else {
-            squareRect = stepX * (0.1 * xPos);
+            squareRect = stepX * (1.0 - 0.125 * pow(xPos - 10, 2));
         }
 
         squareTotal += squareRect;
@@ -35,13 +36,13 @@ int main() {
     for (int i = 0; i < 10 / stepX; i++) {
 
         if (xPos >= 0 && xPos <= 1) {
-            squareRect = stepX * (1.0 / (3.0 - xPos));
+            squareRect = stepX * (0.5 * xPos * xPos * xPos);
         }
-        else if (xPos > 1 && xPos <= 5) {
+        else if (xPos > 1 && xPos <= 8) {
             squareRect = stepX * 0.5;
         }
         else {
-            squareRect = stepX * (0.1 * xPos);
+            squareRect = stepX * (1.0 - 0.125 * pow(xPos - 10, 2));
         }
 
         squareAccum += squareRect;
