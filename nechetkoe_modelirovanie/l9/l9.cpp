@@ -15,7 +15,7 @@ double calculateAreaUnderGraph();
 double findMedian();
 
 int main() {
-    printMembershipGraph(0, 10);
+    printMembershipGraph(MIN_X, MAX_X);
     
     std::cout.precision(5);
     double area = calculateAreaUnderGraph();
@@ -30,40 +30,69 @@ int main() {
 
 
 // variant 10
-// double getMembershipFunction(double x) {
-//     if (x < MIN_X) {
-//         throw std::out_of_range("x is less than MIN_X: " + std::to_string(x));
-//     }
-//     if (x > MAX_X) {
-//         throw std::out_of_range("x is greater than MAX_X: " + std::to_string(x));
-//     }
-
-//     if (x >= 0 && x <= 2) {
-//         return 1.0 - 0.25 * pow(x - 2, 2);
-//     } else if (x >= 2 && x <= 8) {
-//         return 1.0;
-//     } else {
-//         return 1.0 - 0.125 * pow(x - 8, 2);
-//     }
-// }
-
-// variant 13
 double getMembershipFunction(double x) {
-    if (x < MIN_X) {
-        throw std::out_of_range("x is less than MIN_X: " + std::to_string(x));
-    }
-    if (x > MAX_X) {
-        throw std::out_of_range("x is greater than MAX_X: " + std::to_string(x));
-    }
-
-    if (x >= 0 && x <= 1) {
-        return 0.5 * x * x * x;
-    } else if (x > 1 && x <= 8) {
-        return 0.5;
+    if (x >= 0 && x <= 2) {
+        return 1.0 - 0.25 * pow(x - 2, 2);
+    } else if (x > 2 && x <= 8) {
+        return 1.0;
+    } else if (x > 8 && x <= 10) {
+        return 1.0 - 0.125 * pow(x - 8, 2);
     } else {
-        return 1.0 - 0.125 * pow(x - 10, 2);
+        return 0.0;
     }
 }
+
+
+double calculateSegmentArea(double xLeft, double xRight) {
+    double width = xRight - xLeft;
+    double height = getMembershipFunction(xLeft);
+    return width * height;
+}
+
+double calculateAreaUnderGraph() {
+    int numSegments = static_cast<int>((MAX_X - MIN_X) / squareMethodTolerance);
+    
+    double segmentWidth = static_cast<double>(MAX_X - MIN_X) / numSegments;
+    double totalArea = 0.0;
+    
+    for (int i = 0; i < numSegments; ++i) {
+        double xLeft = MIN_X + i * segmentWidth; 
+        double xRight = MIN_X + (i + 1) * segmentWidth;
+        
+        totalArea += calculateSegmentArea(xLeft, xRight);
+    }
+    
+    return totalArea;
+}
+
+double findMedian() {
+    double totalArea = calculateAreaUnderGraph();
+    double targetArea = totalArea / 2.0;
+    
+    int numSegments = static_cast<int>((MAX_X - MIN_X) / squareMethodTolerance);
+    double segmentWidth = static_cast<double>(MAX_X - MIN_X) / numSegments;
+    
+    double accumulatedArea = 0.0;
+    
+    for (int i = 0; i < numSegments; ++i) {
+        double xLeft = MIN_X + i * segmentWidth;
+        double xRight = MIN_X + (i + 1) * segmentWidth;
+        
+        accumulatedArea += calculateSegmentArea(xLeft, xRight);
+        
+        if (std::abs(targetArea - accumulatedArea) <= squareMethodTolerance) {
+            return xRight;
+        }
+        
+        if (accumulatedArea > targetArea) {
+            return xRight;
+        }
+    }
+    
+    return MAX_X;
+}
+
+
 
 void printMembershipGraph(int x1, int x2) {
     const int numSegments = GRAPH_WIDTH;
@@ -120,53 +149,4 @@ void printMembershipGraph(int x1, int x2) {
         }
     }
     std::cout << std::endl;
-}
-
-double calculateSegmentArea(double xLeft, double xRight) {
-    double width = xRight - xLeft;
-    double height = getMembershipFunction(xLeft);
-    return width * height;
-}
-
-double calculateAreaUnderGraph() {
-    int numSegments = static_cast<int>((MAX_X - MIN_X) / squareMethodTolerance);
-    
-    double segmentWidth = static_cast<double>(MAX_X - MIN_X) / numSegments;
-    double totalArea = 0.0;
-    
-    for (int i = 0; i < numSegments; ++i) {
-        double xLeft = MIN_X + i * segmentWidth;
-        double xRight = MIN_X + (i + 1) * segmentWidth;
-        
-        totalArea += calculateSegmentArea(xLeft, xRight);
-    }
-    
-    return totalArea;
-}
-
-double findMedian() {
-    double totalArea = calculateAreaUnderGraph();
-    double targetArea = totalArea / 2.0;
-    
-    int numSegments = static_cast<int>((MAX_X - MIN_X) / squareMethodTolerance);
-    double segmentWidth = static_cast<double>(MAX_X - MIN_X) / numSegments;
-    
-    double accumulatedArea = 0.0;
-    
-    for (int i = 0; i < numSegments; ++i) {
-        double xLeft = MIN_X + i * segmentWidth;
-        double xRight = MIN_X + (i + 1) * segmentWidth;
-        
-        accumulatedArea += calculateSegmentArea(xLeft, xRight);
-        
-        if (std::abs(targetArea - accumulatedArea) <= squareMethodTolerance) {
-            return xRight;
-        }
-        
-        if (accumulatedArea > targetArea) {
-            return xRight;
-        }
-    }
-    
-    return MAX_X;
 }

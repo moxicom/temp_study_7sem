@@ -12,14 +12,14 @@ int main() {
     // === 1. Вычисление полной площади левым методом прямоугольников ===
     for (int i = 0; i < 10 / stepX; i++) {
 
-        if (xPos >= 0 && xPos <= 1) {
-            squareRect = stepX * (0.5 * xPos * xPos * xPos);
+        if (xPos >= 0 && xPos <= 2) {
+            squareRect = stepX * (1.0 - 0.25 * pow(xPos - 2, 2));
         }
-        else if (xPos > 1 && xPos <= 8) {
-            squareRect = stepX * 0.5;
+        else if (xPos >= 2 && xPos <= 8) {
+            squareRect = stepX * 1.0;
         }
         else {
-            squareRect = stepX * (1.0 - 0.125 * pow(xPos - 10, 2));
+            squareRect = stepX * (1.0 - 0.125 * pow(xPos - 8, 2));
         }
 
         squareTotal += squareRect;
@@ -35,14 +35,14 @@ int main() {
 
     for (int i = 0; i < 10 / stepX; i++) {
 
-        if (xPos >= 0 && xPos <= 1) {
-            squareRect = stepX * (0.5 * xPos * xPos * xPos);
+        if (xPos >= 0 && xPos <= 2) {
+            squareRect = stepX * (1.0 - 0.25 * pow(xPos - 2, 2));
         }
-        else if (xPos > 1 && xPos <= 8) {
-            squareRect = stepX * 0.5;
+        else if (xPos >= 2 && xPos <= 8) {
+            squareRect = stepX * 1.0;
         }
         else {
-            squareRect = stepX * (1.0 - 0.125 * pow(xPos - 10, 2));
+            squareRect = stepX * (1.0 - 0.125 * pow(xPos - 8, 2));
         }
 
         squareAccum += squareRect;
@@ -57,3 +57,22 @@ int main() {
 
     return 0;
 }
+
+
+// variant 13
+// double getMembershipFunction(double x) {
+//     if (x < MIN_X) {
+//         throw std::out_of_range("x is less than MIN_X: " + std::to_string(x));
+//     }
+//     if (x > MAX_X) {
+//         throw std::out_of_range("x is greater than MAX_X: " + std::to_string(x));
+//     }
+
+//     if (x >= 0 && x <= 1) {
+//         return 0.5 * x * x * x;
+//     } else if (x > 1 && x <= 8) {
+//         return 0.5;
+//     } else {
+//         return 1.0 - 0.125 * pow(x - 10, 2);
+//     }
+// }
